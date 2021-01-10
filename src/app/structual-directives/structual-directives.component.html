@@ -1,0 +1,102 @@
+
+
+<!-- TODO: DIRECTIVE // *ngIf : ẩn hiện component  -->
+<p *ngIf="isActive" >Hello Angular</p>
+
+<button (click) = "isActive = !isActive">Toggle</button>
+
+<br/>
+
+<!-- View khi đã login   -->
+<div *ngIf="isLogin; else loginTemplate" >
+    <p>Bạn đã Login</p>
+    <button class="btn btn-success" (click) = "isLogin = false">Đăng xuất</button>
+</div>
+
+<!-- View khi chưa login   -->
+<!-- <div *ngIf="!isLogin">
+    <p>Hãy đăng nhập</p>
+    <button class="btn btn-info" (click) = "isLogin = true">Đăng nhập</button>
+</div> -->
+
+
+<!-- TODO: ng-template : là 1 component do Angular định nghĩa sẵn, nó sẽ mặc định tất cả nội dung bên trong ng-template sẽ không đc render ra giao diện, có sẽ chỉ đc render khi mình gọi đến nó -->
+<ng-template #loginTemplate>
+    <div>
+        <p>Hãy đăng nhập</p>
+        <button class="btn btn-info" (click) = "isLogin = true">Đăng nhập</button>
+    </div>
+</ng-template>
+
+
+
+<!-- TODO DIRECTIVE//  [ngSwitch] : ẩn hiện component hoặc view, VỚI NHIỀU ĐIỀU KIỆN HƠN -->
+
+<div [ngSwitch]="color">
+    <p *ngSwitchCase="'primary'" class="text-primary">PRIMARY</p>
+    <p *ngSwitchCase="'danger'" class="text-danger">DANGER</p>
+    <p *ngSwitchCase="'secondary'" class="text-secondary">SECONDARY</p>
+    <p *ngSwitchCase="'warning'" class="text-warning">WARNING</p>
+    <p *ngSwitchCaseDefault>DEFAULT</p>
+
+
+
+    <!-- ** *ngSwitchCase là mặc định, và nhận bên trong "" là biến, muốn đổi thành chuỗi thì thên '' -->
+
+</div>
+
+<select [(ngModel)] = "color">
+    <option value="">Default</option>
+    <option value="primary">Primary</option>
+    <option value="secondary">Secondary</option>
+    <option value="danger">Danger</option>
+    <option value="warning">Warning</option>
+
+</select>
+
+
+<!-- TODO DIRECTIVE // *ngFor : duyệt mảng  -->
+<div class="container mt-5">
+    <p *ngFor="let sv of dssv; let i = index; let total = count">
+        <!-- index as i // count as total   -->
+        {{i+1}} / {{total}} : {{sv.hoTen}} - {{sv.lop}}
+        
+
+    </p>
+
+</div>
+
+<!-- todo : Multiple Structural Directives : ko thể để 2 structual diretive trên cùng 1 thẻ -->
+<div *ngIf="dssv" class="container mt-5">
+    <p  *ngFor="let sv of dssv; let i = index; let total = count">
+        {{i+1}} / {{total}} : {{sv.hoTen}} - {{sv.lop}}
+        
+
+    </p>
+
+</div>
+
+<!-- ng-container : sẽ ko đc render ra giao diện, dùng để gắn ngIf, chỉ gồm nội dung bên trong giao diện đc render ra  -->
+
+
+<ng-container *ngIf="dssv">
+    <p  *ngFor="let sv of dssv; let i = index; let total = count">
+        {{i+1}} / {{total}} : {{sv.hoTen}} - {{sv.lop}}
+    </p>
+
+</ng-container>
+
+
+<!-- TODO :  ngTemplateOutlet : kết hợp ng-template và ng-container để tái sử dụng giao diện  -->
+<ng-template #errorTemplate>
+    <div class="alert alert-danger" role="alert">
+        <strong>Something went wrong ...</strong>
+    </div>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="errorTemplate">
+</ng-container>
+<ng-container *ngTemplateOutlet="errorTemplate">
+</ng-container>
+<ng-container *ngTemplateOutlet="errorTemplate">
+</ng-container>

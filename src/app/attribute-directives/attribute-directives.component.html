@@ -1,0 +1,49 @@
+<!-- <p className={`nav ${isActive ? 'active' : ''}`}></p> -->
+
+<!-- TODO :  NG CLASS  -->
+
+<div class="text-center">
+<p 
+    class="text-center" 
+    [ngClass]="{'bg-primary text-white' : isActive, 'bg-danger text-warning' : !isActive}"
+    
+>Hello Angular</p>
+
+<button class="btn btn-success mt-3" (click) = "isActive = !isActive">Toggle</button>
+</div>
+
+<hr/> 
+
+<!-- TODO :  NG STYLE  -->
+<p 
+    style="text-align : center"
+    [style] = "{
+        'background-color': bgColor,
+        'color' : textColor
+
+    }"
+    
+>
+    Demo Style 
+</p>
+
+<hr/>
+<div
+    style="width: 100%; height: 300px; background-size: contain"
+    [style] = "{
+        'background-image' : 'url('+imageUrl+')'
+    }"
+
+
+></div>
+
+<!-- TODO :  ngNonBindable  -->
+
+<p ngNonBindable>
+    {{bgColor}}
+</p>
+
+<!-- todo : Xử lý in chuỗi html ra giao diện  -->
+<p [innerHTML] = "resultApi">
+    
+</p>

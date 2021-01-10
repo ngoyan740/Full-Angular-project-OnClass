@@ -1,0 +1,47 @@
+<!-- * Interpolation : thường dùng binding nội dung trong 1 thẻ  -->
+
+<p>
+    {{message}}
+</p>
+
+<input value= "{{message}}"/>
+
+
+<!-- * Property binding : property của 1 thẻ bất kỳ -->
+<!-- Bọc property bằng ngoặc vuông, tự hiểu vế đằng sau nó là 1 biến. Ví dụ  biến message  -->
+<input [value] = "message" [disabled] = "isActive" />
+
+
+<!-- * Event binding : binding dữ liệu từ view (html) sang model -->
+<!-- #name : dom đến chính thẻ nó đang muốn dom tới  -->
+<input [value] = "message" #messageRef/>
+
+<!-- Event click của Angular (click) = "function()" -->
+<button (click) = "handleChangeMessage(messageRef)">Click</button>
+
+
+
+
+<p>{{userName}}</p>
+<!-- sự kiện onChange : thay đổi khi nhấn submit hoặc tab  -->
+<input [value]="userName" (change) = "handleChangUsername($event)" />
+
+<!-- Sự kiện input : thay đổi giá trị ngay tức khắc : toàn bộ html render lại -->
+<input [value]="userName" (input) = "handleChangUsername($event)" />
+
+
+<!-- * Cách ghi ngắn gọn : dùng event change hoặc input đều đc   -->
+<!-- <input [value]="email" (input) = " email  = $event.target.value" /> -->
+
+
+<!-- * Two-way binding : chỉ cho event input  -->
+<p>{{ email }}</p>
+<!-- TODO: Cách 1 -->
+<input [value]="userName" (input) = "handleChangUsername($event)" />
+
+<!-- TODO: Cách 2  -->
+<input [(ngModel)]="email" />
+<!-- [] : property binding
+() : event binding 
+<!-- * kết hợp lại và tự động cập nhật giá trị  -->
+
