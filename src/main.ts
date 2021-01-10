@@ -8,5 +8,7 @@ if (environment.production) {
   enableProdMode();
 }
 
+
+// Khai báo App Modules là module khởi chạy đầu tiên của ứng dụng
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
