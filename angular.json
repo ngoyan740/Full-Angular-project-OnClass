@@ -31,6 +31,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
@@ -99,6 +100,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -132,5 +134,8 @@
       }
     }
   },
-  "defaultProject": "projectangular"
+  "defaultProject": "projectangular",
+  "cli": {
+    "analytics": "778cd7d4-90af-4de7-8422-7660c652292a"
+  }
 }

@@ -12,6 +12,18 @@ import { DataBindingComponent } from './data-binding/data-binding.component'
 import{Baitap4Module} from './baitap4/baitap4.module';
 import { StructualDirectivesComponent } from './structual-directives/structual-directives.component';
 import { AttributeDirectivesComponent } from './attribute-directives/attribute-directives.component';
+import { TestExampleComponent } from './test-example/test-example.component';
+import {} from './components/components.module';
+import {ComponentsModule} from './components/components.module'
+import {DirectivesModule} from './directives/directives.module'
+import {InteractionModule} from './interaction/interaction.module'
+import {DatVeXeModule} from './dat-ve-xe/dat-ve-xe.module';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { AuthInterceptor } from './core/interceptor/auth.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 @NgModule({
   declarations: [
     //Nơi khai báo các Component được quản lý bởi module
@@ -22,7 +34,8 @@ import { AttributeDirectivesComponent } from './attribute-directives/attribute-d
     DemoComponent,
     DataBindingComponent,
     StructualDirectivesComponent,
-    AttributeDirectivesComponent
+    AttributeDirectivesComponent,
+    TestExampleComponent
   ],
   imports: [
 
@@ -38,12 +51,20 @@ import { AttributeDirectivesComponent } from './attribute-directives/attribute-d
     FormsModule,
     // Baitap1Module,
     Baitap2Module,
-    Baitap4Module
+    Baitap4Module,
+    ComponentsModule,
+    DirectivesModule,
+    InteractionModule,
+    DatVeXeModule,
+    HttpClientModule,
+    BrowserAnimationsModule // Dùng đê giao tiếp với backend, chỉ cần import ở app module
+  
+    
     
   ],
   providers: [
     // Nơi khai báo các services cần sử dụng
-
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
 
 
   ],

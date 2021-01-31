@@ -1,0 +1,5 @@
+<h3>Danh Sách Ghế Đã Đặt</h3>
+<div *ngFor="let gheDaDat of dsachGheDaDat" class="d-flex mt-4">
+<p class="mr-3">Ghế: {{gheDaDat.soGhe}} - ${{gheDaDat.gia}}</p> 
+   <button class="btn btn-danger" (click) = "huyGhe(gheDaDat.soGhe)">Hủy</button>
+</div>

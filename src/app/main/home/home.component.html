@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <!-- Trường hợp app loading  -->
+    <p *ngIf="loading">Loading...</p>
+
+    <!-- Trường hợp app error  -->
+    <p *ngIf="error">
+      {{ error }}
+    </p>
+
+    <!-- Trường hợp có data  -->
+    <!-- slice:0:5, định dạng của Pipe để cắt mảng -->
+    <div *ngFor="let movie of movieList" class="col-sm-3">
+      <div class="card text-light bg-dark">
+        <img class="card-img-top" [src]="movie.hinhAnh" alt="" />
+        <div class="card-body">
+          <!-- *Pipe : format và hiển thị ra giao diện 1 kiểu mới  -->
+          <h4 class="card-title">{{ movie.tenPhim | uppercase }}</h4>
+          <!-- <h4 class="card-title">{{movie.tenPhim | lowercase}}</h4> -->
+
+          <!-- <p class="text-light">{{0.5 | percent}}</p> -->
+          <!-- Format theo giá trị tiền tệ  -->
+          <!-- <p class="text-light">{{10000 | currency : "KRW"}}</p> -->
+
+          <!-- Định dạng JSON & THẺ pre  -->
+          <!-- <pre>{{movie | json}}</pre> -->
+
+          <!-- Định dạng ngày tháng  -->
+          <pre class="text-light">{{
+            movie.ngayKhoiChieu | date: "dd/MM/yy hh:mm:ss"
+          }}</pre>
+
+          <p class="text-white">{{ movie.moTa | shorcut: 50 }}</p>
+          <button mat-raised-button color="primary" routerLink="/movie/{{ movie.maPhim }}">
+            Chi tiết phim
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

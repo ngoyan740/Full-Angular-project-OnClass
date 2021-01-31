@@ -1,0 +1,6 @@
+<div class="container">
+    <h1>Interaction</h1>
+    <app-add-movie (onAdd) = "handleAddMovie($event)"></app-add-movie>
+    <app-movie-list #movieList [newMovie] ="newMovie"></app-movie-list>
+</div>
+

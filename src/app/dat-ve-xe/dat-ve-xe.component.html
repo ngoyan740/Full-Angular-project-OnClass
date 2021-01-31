@@ -1,0 +1,18 @@
+<div class="container">
+    <h3>ĐẶT VÉ XE BUS HÃNG CYBERSOFT</h3>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div><h2>Tài xế</h2></div>
+            <div>
+                <app-dsach-ghe (onSelect)="chonGhe($event)" #danhSachGhe></app-dsach-ghe>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <!-- Sử dụng viewchild: dùng tham chiếu #....  -->
+           <app-dsach-ghe-da-dat #dsachGheDaDat (onRemove)="huyGhe($event)"></app-dsach-ghe-da-dat>
+        </div>
+
+    </div>
+
+</div>

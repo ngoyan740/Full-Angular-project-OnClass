@@ -1,0 +1,67 @@
+<h1 class="text-center">Log In</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 mx-auto">
+      <form [formGroup]="signInForm" (ngSubmit)="handleLogIn()">
+          <!-- <error-message [control]="signInForm.get('taiKhoan') name="taiKhoan""></error-message> -->
+          
+        <div class="form-group">
+          <label>Tài Khoản</label>
+          <input type="text" class="form-control" formControlName="taiKhoan" />
+          <app-error-message [control]="signInForm.get('taiKhoan')" name="taiKhoan">
+        </app-error-message>
+          <!-- <div
+            class="alert alert-danger"
+            *ngIf="
+              signInForm.get('taiKhoan')?.invalid &&
+              (signInForm.get('taiKhoan')?.dirty ||
+                signInForm.get('taiKhoan')?.touched)
+            "
+          >
+            <span *ngIf="signInForm.get('taiKhoan')?.errors?.required"
+              >Tài khoản không được để trống !</span
+            >
+            <span
+              *ngIf="
+                signInForm.get('taiKhoan')?.errors?.minlength ||
+                signInForm.get('taiKhoan')?.errors?.maxlength
+              "
+              >Tài khoản phải từ 3 đến 20 kí tự !</span
+            >
+          </div> -->
+        </div>
+        <div class="form-group">
+          <label>Mật Khẩu</label>
+          <input
+            type="password"
+            class="form-control"
+            formControlName="matKhau"
+          />
+          <!-- <app-error-message [control]="signInForm.get('matKhau')" name="matKhau"> -->
+            <app-error-message [control]="signInForm.get('matKhau')">
+
+          </app-error-message>
+          <!-- <div class="alert alert-danger"
+            *ngIf="
+              signInForm.get('matKhau')?.invalid &&
+              (signInForm.get('matKhau')?.dirty ||
+                signInForm.get('matKhau')?.touched)
+            "
+          >
+            <span *ngIf="signInForm.get('matKhau')?.errors?.required"
+              >Mật khẩu không được để trống !</span
+            >
+            <span
+              *ngIf="
+                signInForm.get('matKhau')?.errors?.minlength ||
+                signInForm.get('matKhau')?.errors?.maxlength
+              "
+              >Mật khẩu phải từ 3 đến 20 kí tự !</span
+            >
+          </div> -->
+        </div>
+        <button class="btn btn-success">Đăng Nhập</button>
+      </form>
+    </div>
+  </div>
+</div>
